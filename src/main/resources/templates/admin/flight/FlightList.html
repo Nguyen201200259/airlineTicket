@@ -59,6 +59,7 @@
       <th><a th:href="@{'/admin/flightList/page/'+${currentPage}+'?sortBy=arrivingAt'}">Điểm đến</a></th>
       <th><a th:href="@{'/admin/flightList/page/'+${currentPage}+'?sortBy=flightTime'}">Giờ cất cánh</a></th>
       <th><a th:href="@{'/admin/flightList/page/'+${currentPage}+'?sortBy=departureTime'}">Giờ hạ cánh</a></th>
+      <th><a th:href="@{'/admin/flightList/page/'+${currentPage}+'?sortBy=dateFlight'}">Ngày cất cánh</a></th>
       <th><a th:href="@{'/admin/flightList/page/'+${currentPage}+'?sortBy=feeFlight'}">Phí chuyến bay</a></th>
       <th style="width: 170px;">Chức năng</th>
     </tr>
@@ -71,6 +72,7 @@
         <td th:utext="${flight.getArrivingAt()}">..</td>
         <td th:utext="${flight.getFlightTime()}">..</td>
         <td th:utext="${flight.getDepartureTime()}">..</td>
+        <td th:utext="${flight.getDateFlight()}">..</td>
         <td th:utext="${flight.getFormatFeeFlight(flight.getFeeFlight())}">..</td>
 
         <td style="display: flex">

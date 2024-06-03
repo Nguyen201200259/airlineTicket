@@ -28,7 +28,7 @@
 <div class="w3-main" style="margin-left:300px;margin-top:43px;background-color: #f1f1f1">
 
   <h1 style="font-weight: bold; font-size: 25px; padding: 25px 15px">Thêm mới chuyến bay</h1>
-<form style="padding-left: 20px;" th:method="POST" th:action="@{/admin/addFlight}">
+<form style="padding-left: 20px;" th:method="POST" th:action="@{/admin/addFlight}" th:object="${flight}">
   <p class="paddingName">Khởi hành từ</p>
   <input type="text" name="departingForm" placeholder="Khởi hành từ"/>
   <p th:if="${departingForm}" class="error">[[${departingForm}]]</p>
@@ -44,6 +44,10 @@
   <p class="paddingName">Giờ hạ cánh</p>
   <input type="number" value="0" name="departureTime" placeholder="Giờ hạ cánh"/>
   <p th:if="${departureTime}" class="error">[[${departureTime}]]</p>
+  <br/>
+  <p class="paddingName">Ngày cất cánh</p>
+  <input type="date" value="0" name="dateFlight" placeholder="Ngày cất cánh"/>
+  <p th:if="${dateFlight}" class="error">[[${dateFlight}]]</p>
   <br/>
   <p class="paddingName">Phí chuyến bay</p>
   <input type="number" value="0" name="feeFlightx" placeholder="Phí chuyến bay">

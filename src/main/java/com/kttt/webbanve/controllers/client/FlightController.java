@@ -273,7 +273,7 @@ public class FlightController {
             if(request.getSession().getAttribute("flightSelected") != null){
                 ArrayList<FlightSelected> flightSelected = (ArrayList<FlightSelected>) request.getSession().getAttribute("flightSelected");
                 if(flightSelected.size()>0) {
-                    model.addAttribute("error", "Xóa lựa để chọn lại!");
+                    model.addAttribute("error", "Xóa lựa chọn cũ để chọn lại!");
                 }
                 else{
                     FlightSelected fs = new FlightSelected();
@@ -510,6 +510,8 @@ public class FlightController {
                 return "client/selectSeat";
             }
         }
+        Customer cus = (Customer) request.getSession().getAttribute("customer");
+        System.out.println(cus);
         for (FlightSelected f :
                 flightSelecteds) {
             Seat seat = f.getSeat();

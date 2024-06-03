@@ -40,10 +40,10 @@
     <p class="paddingName">Vai trò</p>
 <!--    <input type="number" name="role" placeholder="role" th:value="${user.getRole()}"/>-->
     <select name="role">
-      <option th:value="${user.getRole()}" th:text="${user.getRole()}"></option>
-      <option th:value="0" th:text="KHÁCH HÀNG"></option>
-      <option th:value="1" th:text="NHÂN VIÊN"></option>
-      <option th:value="2" th:text="QUẢN LÝ"></option>
+      <option th:value="${user.getRole()}">[[${user.getRole()}]]</option>
+      <option th:value="0" >KHÁCH HÀNG</option>
+      <option th:value="1" >NHÂN VIÊN</option>
+      <option th:value="2" >QUẢN LÝ</option>
     </select>
     <p th:if="${role}" class="error">[[${role}]]</p>
     <br/>

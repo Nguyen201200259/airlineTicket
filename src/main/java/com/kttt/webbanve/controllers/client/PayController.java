@@ -70,6 +70,11 @@ public class PayController {
         }
         String fullname = cus.getFullname();
         String email = cus.getEmail();
+//        if(cr.existsByEmail(email)){
+//            model.addAttribute("pageTitle","Thanh toán");
+//            model.addAttribute("error","Email đã tồn tại!");
+//            return "client/payment";
+//        }
         String phone = cus.getPhone();
         String address = cus.getAddress();
         String citizen_identification = cus.getCitizenIdentification();
@@ -167,6 +172,7 @@ public class PayController {
             String vnp_SecureHash = Config.hmacSHA512(Config.secretKey, hashData.toString());
             queryUrl += "&vnp_SecureHash=" + vnp_SecureHash;
             String paymentUrl = Config.vnp_PayUrl + "?" + queryUrl;
+        System.out.println(paymentUrl);
             return paymentUrl;
     }
 

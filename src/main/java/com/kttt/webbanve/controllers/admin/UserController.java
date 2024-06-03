@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -120,7 +121,7 @@ public class UserController {
         try{
             User user = new User();
             user.setUsername(request.getParameter("username"));
-            user.setPassword(request.getParameter("password"));
+            user.setPassword(new BCryptPasswordEncoder().encode(request.getParameter("password")));
             user.setRole(Integer.parseInt(request.getParameter("role")));
             userService.addAccount(user);
             ra.addFlashAttribute("success","Thêm thành công");

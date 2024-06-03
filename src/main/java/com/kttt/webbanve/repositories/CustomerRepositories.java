@@ -8,4 +8,5 @@ public interface CustomerRepositories extends JpaRepository<Customer,Integer> {
     public Customer findCustomerByCustomerID(int id);
     public Customer getCustomerByEmail(String email);
     public Customer getCustomerByCitizenIdentification(String cid);
+    boolean existsByEmail(String email);
 }
